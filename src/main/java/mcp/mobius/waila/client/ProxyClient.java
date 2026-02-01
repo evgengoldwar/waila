@@ -17,6 +17,7 @@ import mcp.mobius.waila.handlers.HUDHandlerEntities;
 import mcp.mobius.waila.handlers.VanillaTooltipHandler;
 import mcp.mobius.waila.handlers.nei.NEIHandler;
 import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderAspectString;
+import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderFancyProgressBar;
 import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderFluidBar;
 import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderHealth;
 import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderProgressBar;
@@ -58,6 +59,7 @@ public class ProxyClient extends ProxyServer {
         ModuleRegistrar.instance().registerTooltipRenderer("waila.progress", new TTRenderProgressBar());
         ModuleRegistrar.instance().registerTooltipRenderer("waila.fluid", new TTRenderFluidBar());
         ModuleRegistrar.instance().registerTooltipRenderer("waila.rfenergy", new TTRenderRFBar());
+        ModuleRegistrar.instance().registerTooltipRenderer("waila.fancy_progress_bar", new TTRenderFancyProgressBar());
 
         ModuleRegistrar.instance().registerTooltipRenderer("waila.tcaspect", new TTRenderAspectString());
 
