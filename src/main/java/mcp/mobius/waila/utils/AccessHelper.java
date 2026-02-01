@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.multiplayer.PlayerControllerMP;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,11 +16,24 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import mcp.mobius.waila.Waila;
 import mcp.mobius.waila.api.IWailaDataProvider;
 import mcp.mobius.waila.api.IWailaEntityProvider;
 
 public class AccessHelper {
+
+    private static Field curBlockDamageMP = null;
+
+    static {
+        try {
+            curBlockDamageMP = PlayerControllerMP.class.getDeclaredField("curBlockDamageMP");
+            curBlockDamageMP.setAccessible(true);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static Field getDeclaredField(String classname, String fieldname) {
 
@@ -128,5 +142,17 @@ public class AccessHelper {
             InvocationTargetException {
         Method getNBTData = provider.getClass().getMethod("getNBTData", Entity.class, NBTTagCompound.class);
         return (NBTTagCompound) getNBTData.invoke(provider, entity, tag);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public static float getCurBlockDamageMP(PlayerControllerMP playerControllerMP) {
+        if (curBlockDamageMP != null) {
+            try {
+                return (float) curBlockDamageMP.get(playerControllerMP);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        return 0.0F;
     }
 }

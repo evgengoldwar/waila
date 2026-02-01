@@ -8,12 +8,14 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import mcp.mobius.waila.api.impl.ConfigHandler;
+import mcp.mobius.waila.utils.AccessHelper;
 
 public class OverlayRenderer {
 
     private static boolean hasBlending;
     private static boolean hasDepthTest;
     private static int boundTexIndex;
+    private static final Minecraft mc = Minecraft.getMinecraft();
 
     public static void renderOverlay(Tooltip tooltip) {
         Minecraft mc = Minecraft.getMinecraft();
@@ -36,7 +38,6 @@ public class OverlayRenderer {
     }
 
     private static void doRenderOverlay(Tooltip tooltip) {
-
         GL11.glPushMatrix();
         saveGLState();
 
@@ -55,6 +56,15 @@ public class OverlayRenderer {
                 OverlayConfig.bgcolor,
                 OverlayConfig.gradient1,
                 OverlayConfig.gradient2);
+
+        float breakProgress = AccessHelper.getCurBlockDamageMP(mc.playerController);
+
+        if (breakProgress > 0.0f && breakProgress < 1.0f) {
+            int progressHeight = 1;
+            int progressY = tooltip.y + tooltip.h - progressHeight - 1;
+            BreakProgressRenderer
+                    .renderBreakProgress(tooltip.x + 1, progressY, tooltip.w + 5, progressHeight, breakProgress);
+        }
 
         GL11.glEnable(GL11.GL_BLEND);
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
