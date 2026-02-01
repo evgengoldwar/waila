@@ -50,10 +50,6 @@ public class ProxyClient extends ProxyServer {
         ModuleRegistrar.instance().registerBodyProvider(new HUDHandlerEntities(), Entity.class);
         ModuleRegistrar.instance().registerTailProvider(new HUDHandlerEntities(), Entity.class);
 
-        ModuleRegistrar.instance().addConfig("General", "general.showents");
-        ModuleRegistrar.instance().addConfig("General", "general.showhp");
-        ModuleRegistrar.instance().addConfig("General", "general.showcrop");
-
         ModuleRegistrar.instance().registerTooltipRenderer("waila.health", new TTRenderHealth());
         ModuleRegistrar.instance().registerTooltipRenderer("waila.stack", new TTRenderStack());
         ModuleRegistrar.instance().registerTooltipRenderer("waila.progress", new TTRenderProgressBar());

@@ -2,6 +2,7 @@ package mcp.mobius.waila.handlers;
 
 import static mcp.mobius.waila.api.SpecialChars.BLUE;
 import static mcp.mobius.waila.api.SpecialChars.ITALIC;
+import static mcp.mobius.waila.api.SpecialChars.RENDER;
 
 import java.util.List;
 
@@ -71,8 +72,6 @@ public class HUDHandlerBlocks implements IWailaDataProvider {
     @Override
     public List<String> getWailaTail(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor,
             IWailaConfigHandler config) {
-        // currenttip.add(RENDER + "{Plip}" + RENDER + "{Plop,thisisatest,222,333}");
-
         String modName = ModIdentification.nameFromStack(itemStack);
         if (modName != null && !modName.isEmpty()) {
             currenttip.add(BLUE + ITALIC + modName);

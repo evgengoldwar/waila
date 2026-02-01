@@ -29,7 +29,7 @@ public class HUDHandlerMagicalCrops implements IWailaDataProvider {
     @Override
     public List<String> getWailaBody(ItemStack itemStack, List<String> currenttip, IWailaDataAccessor accessor,
             IWailaConfigHandler config) {
-        if (!config.getConfig("general.showcrop")) return currenttip;
+        if (!config.getConfig("vanilla.showcrop")) return currenttip;
 
         int growthStage = accessor.getMetadata();
 

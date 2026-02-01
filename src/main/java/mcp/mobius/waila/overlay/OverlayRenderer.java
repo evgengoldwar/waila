@@ -32,7 +32,7 @@ public class OverlayRenderer {
         }
 
         if (RayTracing.instance().getTarget().typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY
-                && ConfigHandler.instance().getConfig("general.showents")) {
+                && ConfigHandler.instance().getConfig("vanilla.showents")) {
             doRenderOverlay(tooltip);
         }
     }

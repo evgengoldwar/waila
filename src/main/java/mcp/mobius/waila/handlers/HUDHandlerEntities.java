@@ -45,7 +45,7 @@ public class HUDHandlerEntities implements IWailaEntityProvider {
     @Override
     public List<String> getWailaBody(Entity entity, List<String> currenttip, IWailaEntityAccessor accessor,
             IWailaConfigHandler config) {
-        if (!config.getConfig("general.showhp")) return currenttip;
+        if (!config.getConfig("vanilla.showhp")) return currenttip;
 
         if (entity instanceof EntityLivingBase) {
 

@@ -2,15 +2,15 @@ package mcp.mobius.waila.overlay.tooltiprenderers;
 
 import java.awt.Dimension;
 
-import mcp.mobius.waila.api.IWailaVariableWidthTooltipRenderer;
-import mcp.mobius.waila.api.SpecialChars;
-import mcp.mobius.waila.overlay.DisplayUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 
 import org.lwjgl.opengl.GL11;
 
 import mcp.mobius.waila.api.IWailaCommonAccessor;
+import mcp.mobius.waila.api.IWailaVariableWidthTooltipRenderer;
+import mcp.mobius.waila.api.SpecialChars;
+import mcp.mobius.waila.overlay.DisplayUtil;
 
 public class TTRenderFancyProgressBar implements IWailaVariableWidthTooltipRenderer {
 
@@ -18,7 +18,9 @@ public class TTRenderFancyProgressBar implements IWailaVariableWidthTooltipRende
 
     @Override
     public Dimension getSize(String[] params, IWailaCommonAccessor accessor) {
-        return new Dimension(DisplayUtil.getDisplayWidth(params.length > 4 ? params[4] : ""), Integer.parseInt(params[0]));
+        return new Dimension(
+                DisplayUtil.getDisplayWidth(params.length > 4 ? params[4] : ""),
+                Integer.parseInt(params[0]));
     }
 
     @Override
