@@ -16,7 +16,13 @@ import mcp.mobius.waila.handlers.HUDHandlerBlocks;
 import mcp.mobius.waila.handlers.HUDHandlerEntities;
 import mcp.mobius.waila.handlers.VanillaTooltipHandler;
 import mcp.mobius.waila.handlers.nei.NEIHandler;
-import mcp.mobius.waila.overlay.tooltiprenderers.*;
+import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderAspectString;
+import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderBar;
+import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderFluidBar;
+import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderHealth;
+import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderProgressBar;
+import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderRFBar;
+import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderStack;
 import mcp.mobius.waila.server.ProxyServer;
 import mcp.mobius.waila.utils.LoadedMods;
 
