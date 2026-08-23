@@ -44,7 +44,7 @@ public class TTRenderStack implements IWailaTooltipRenderer {
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
             GL11.glScaled(scale, scale, 1.0f);
 
-            DisplayUtil.renderStack(0, 0, stack);
+            DisplayUtil.renderStack(0, -1, stack);
 
             GL11.glDisable(GL12.GL_RESCALE_NORMAL);
             GL11.glPopMatrix();
