@@ -4,11 +4,14 @@ import com.gtnewhorizon.gtnhlib.color.ColorResource;
 
 public class ColorUtils {
 
-    private static final ColorResource.Factory color = new ColorResource.Factory("Waila");
+    private static final ColorResource.Factory color = new ColorResource.Factory("waila");
 
-    public static final ColorResource fuelFurnaceBarTop = color.rgb("fuelFurnaceBarTop", "0xFFFF8800");
-    public static final ColorResource fuelFurnaceBarBottom = color.rgb("fuelFurnaceBarBottom", "0xFFFFCC00");
+    public static final ColorResource
+    // spotless:off
+            fuelFurnaceBarTop       = color.argb("fuelFurnaceBarTop",    "0xFFFF8800"),
+            fuelFurnaceBarBottom    = color.argb("fuelFurnaceBarBottom", "0xFFFFCC00"),
+            progressBarTop          = color.argb("progressBarTop",       "0xFFFF0000"),
+            progressBarBottom       = color.argb("progressBarBottom",    "0xFF8B0000");
+    // spotless:on
 
-    public static final ColorResource progressBarTop = color.rgb("progressBarTop", "0xFFFF0000");
-    public static final ColorResource progressBarBottom = color.rgb("progressBarBottom", "0xFF8B0000");
 }
