@@ -19,6 +19,7 @@ import mcp.mobius.waila.api.impl.ModuleRegistrar;
 import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderBar;
 import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderProgressBar;
 import mcp.mobius.waila.overlay.tooltiprenderers.TTRenderStack;
+import mcp.mobius.waila.utils.ColorUtils;
 
 public class HUDHandlerFurnace implements IWailaDataProvider {
 
@@ -69,8 +70,8 @@ public class HUDHandlerFurnace implements IWailaDataProvider {
         if (fuelProgress > 0) {
             String fuelBar = TTRenderBar.create(
                     String.format("Fuel %ds / %ds", (maxFuelTime - fuelTime) / 20, maxFuelTime / 20),
-                    0xFFFF0000,
-                    0xFFCC0000,
+                    ColorUtils.fuelFurnaceBarTop.getColor(),
+                    ColorUtils.fuelFurnaceBarBottom.getColor(),
                     1.0 - fuelProgress);
             currenttip.add(fuelBar);
         }
@@ -78,8 +79,8 @@ public class HUDHandlerFurnace implements IWailaDataProvider {
         if (smeltProgress > 0) {
             String cookBar = TTRenderBar.create(
                     String.format("Smelt %ds / %ds", smeltTime / 20, 200 / 20),
-                    0xFFFF8800,
-                    0xFFFFCC00,
+                    ColorUtils.progressBarTop.getColor(),
+                    ColorUtils.progressBarBottom.getColor(),
                     smeltProgress);
             currenttip.add(cookBar);
         }
