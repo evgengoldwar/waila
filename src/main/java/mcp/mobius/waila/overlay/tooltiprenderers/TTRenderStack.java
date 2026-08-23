@@ -69,4 +69,12 @@ public class TTRenderStack implements IWailaTooltipRenderer {
     public static String create(ItemStack itemStack, boolean small) {
         return create(itemStack, 1, small);
     }
+
+    public static String create(ItemStack itemStack) {
+        return create(itemStack, false);
+    }
+
+    public static String create(ItemStack itemStack, int amount) {
+        return create(itemStack, amount, false);
+    }
 }

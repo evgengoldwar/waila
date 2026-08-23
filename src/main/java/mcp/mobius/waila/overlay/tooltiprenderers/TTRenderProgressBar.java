@@ -7,6 +7,7 @@ import net.minecraft.util.ResourceLocation;
 
 import mcp.mobius.waila.api.IWailaCommonAccessor;
 import mcp.mobius.waila.api.IWailaTooltipRenderer;
+import mcp.mobius.waila.api.SpecialChars;
 import mcp.mobius.waila.overlay.DisplayUtil;
 
 public class TTRenderProgressBar implements IWailaTooltipRenderer {
@@ -31,6 +32,10 @@ public class TTRenderProgressBar implements IWailaTooltipRenderer {
         DisplayUtil.drawTexturedModalRect(4, 0, 4, 16, 28, 16, 28, 16);
         DisplayUtil.drawTexturedModalRect(4, 0, 4, 0, progress + 1, 16, progress + 1, 16);
 
+    }
+
+    public static String create(int currentValue, int maxValue) {
+        return SpecialChars.getRenderString("waila.progress", String.valueOf(currentValue), String.valueOf(maxValue));
     }
 
 }
